@@ -1,0 +1,340 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>BANK Customer Churn & Loan Prediction</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sourcesanspro-font.css' %}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body class="form-v8">
+
+<!-- Navbar Starts -->
+    <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand font-weight-bold" href="#" style="color: Black;">INFRA PSEUDO BANK</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+                <a class="nav-link" href="#">Home </a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#">Net Banking</a>
+             </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="#">Predictions<span class="sr-only">(current)</span></a>
+             </li>
+		<li class="nav-item">
+               		<a class="nav-link" href="#">Career</a>
+             	</li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+             </li>
+             
+        </ul>
+    </div>
+    </nav>
+    </section>
+    <!-- Navbar Ends -->
+
+	<div class="page-content">
+		<div class="form-v8-content">
+			
+			<div class="form-right">
+				<div class="tab">
+					<div class="tab-inner">
+						<button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen">Customer Churn</button>
+					</div>
+					<div class="tab-inner">
+						<button class="tablinks" onclick="openCity(event, 'sign-in')">Loan Approval</button>
+					</div>
+				</div>
+				<form class="form-detail" action="result1/" method="post">
+					{% csrf_token %}
+					<div class="tabcontent" id="sign-up">
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" name="full_name" id="full_name" class="input-text" required>
+								<span class="label">Customer Name</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+
+
+						<div class="form-row">
+				     			<label class="form-row-inner">
+			        				<input type="number" name="CreditScore"  id="CreditScore" class="input-text" required>
+			        				<span class="label">Credit Score</span>
+								<span class="border"></span>
+				        
+							</label>
+     				 		</div> 
+
+						<div class="form-row">
+			   		  		<label class="form-row-inner">
+			     			   		<input type="text" name="age"  id="age" class="input-text" required>
+			      			 		 <span class="label">Age</span>
+								<span class="border"></span>
+				        
+							</label>
+     						</div> 
+            
+						<div class="form-row">
+			     				<label class="form-row-inner">
+			      					<input type="number" name="tenure"  id="tenure" class="input-text" required>
+			        				<span class="label">Tenure</span>
+								<span class="border"></span>
+				        
+							</label>
+       						</div> 
+
+						<div class="form-row">
+			    				 <label class="form-row-inner">
+			       					 <input type="text" name="balance"  id="balance" class="input-text" required>
+			     					 <span class="label">Account Balance</span>
+								<span class="border"></span>
+				        
+							</label>
+       						</div> 
+						<div class="form-row">
+						     <label class="form-row-inner">
+							        <input type="number" name="products"  id="products" class="input-text" required>
+			        				<span class="label">Number of Products</span>
+								<span class="border"></span>
+				        
+							</label>
+       						</div> 
+						<div class="form-row">
+			     				<label class="form-row-inner">
+			       					 <input type="text" name="salary"  id="salary" class="input-text" required>
+			        				<span class="label">Salary</span>
+								<span class="border"></span>
+				        
+								</label>
+       						</div> 
+
+
+						<div class="form-group">
+							<p>Active Customer <span></span></p>
+							<span class="icon-case"></span>
+                					<select name="active" id="active" required="required">
+                						<option value="1">Yes</option>
+               							 <option value="0">No</option>
+           						 </select>
+            					    <div class="validation"></div>
+						</div><br>
+
+					<div class="form-group">
+						<p>Own Credit Card  <span></span></p>
+						<span class="icon-case"></span>
+               					 <select name="creditcard" id="creditcard" required="required">
+              					  	<option value="1">Yes</option>
+              					  	<option value="0">No</option>
+          					 </select>
+                				<div class="validation"></div>
+					</div><br>
+                            
+					<div class="form-group">
+						<p>Select Location <span></span></p>
+						<span class="icon-case"></span>
+                				<select name="location1" id="location1" required="required">
+                					<option value="Germany">Germany</option>
+                					<option value="Spain">Spain</option>
+               						<option value="France">France</option>
+            					</select>
+            					<div class="validation"></div>
+					</div>
+
+					<div class="form-group">
+						<p>Gender  <span></span></p>
+						<span class="icon-case"></span>
+                				<select name="gender1" id="gender1" required="required">
+                					<option value="1">Male</option>
+                					<option value="0">Female</option>
+            					</select>
+                				<div class="validation"></div>
+					</div><br>
+                            						
+						<div class="form-row-last">
+							<input type="submit" name="register" class="register" value="Predict">
+						</div>
+					</div>
+				</form>
+
+				<form class="form-detail" action="result2/" method="post">
+					{% csrf_token %}
+					<div class="tabcontent" id="sign-in">
+						<div class="form-row">
+							<label class="form-row-inner">
+								<input type="text" name="full_name_1" id="full_name_1" class="input-text" required>
+								<span class="label">Customer Name</span>
+		  						<span class="border"></span>
+							</label>
+						</div>
+					<div class="form-group">
+						<p>Gender  <span></span></p>
+						<span class="icon-case"></span>
+                					<select name="gender2" id="gender2" required="required">
+             						   <option value="1">Male</option>
+             						   <option value="0">Female</option>
+        						 </select>
+                			<div class="validation"></div>
+					</div><br>
+						
+					<div class="form-group">
+						<p>Married  <span></span></p>
+						<span class="icon-case"></span>
+                				<select name="married2" id="married2" required="required">
+              					 	<option value="1">Yes</option>
+                					<option value="0">No</option>
+           					 </select>
+                			<div class="validation"></div>
+					</div><br>
+
+					<div class="form-group">
+						<p>Graduate   <span></span></p>
+						<span class="icon-case"></span>
+                				<select name="graduate2" id="graduate2" required="required">
+                					<option value="1">Yes</option>
+               						<option value="0">No</option>
+            					</select>
+                			<div class="validation"></div>
+					</div><br>
+
+					<div class="form-group">
+						<p>Self Employed   <span></span></p>
+						<span class="icon-case"></span>
+                				<select name="se2" id="se2" required="required">
+                					<option value="1">Yes</option>
+                					<option value="0">No</option>
+            					</select>
+                			<div class="validation"></div>
+					</div><br>
+
+					<div class="form-row">
+			    			 <label class="form-row-inner">
+			        		<input type="number" name="dependents"  id="dependents" class="input-text" required>
+			        			<span class="label">Dependents</span>
+							<span class="border"></span>
+						</label>
+       					</div>
+
+					<div class="form-row">
+			     			<label class="form-row-inner">
+			        		<input type="text" name="applicantIncome"  id="applicantIncome" class="input-text" required>
+			        			<span class="label">Applicant Income</span>
+							<span class="border"></span>
+				        
+						</label>
+       					</div> 
+					<div class="form-row">
+			     			<label class="form-row-inner">
+			        		<input type="text" name="CoapplicantIncome"  id="CoapplicantIncome" class="input-text" required>
+			        			<span class="label">Co-Applicant Income</span>
+							<span class="border"></span>
+				        
+						</label>
+      					 </div> 
+					<div class="form-row">
+			     			<label class="form-row-inner">
+			        			<input type="text" name="loanAmount"  id="loanAmount" class="input-text" required>
+			        				<span class="label">Loan Amount</span>
+								<span class="border"></span>
+				        
+						</label>
+       					</div> 
+					<div class="form-row">
+			     			<label class="form-row-inner">
+			       			 <input type="text" name="LoanAmountTerm"  id="LoanAmountTerm" class="input-text" required>
+			        			<span class="label">Loan Amount Term</span>
+							<span class="border"></span>
+				        
+						</label>
+       					</div> 
+
+
+					<div class="form-row">
+			     			<label class="form-row-inner">
+			        		<input type="number" name="creditHistory"  id="creditHistory" class="input-text" required>
+			        			<span class="label">Credit History</span>
+							<span class="border"></span>
+				        
+						</label>
+       					</div>
+
+											<div class="form-group">
+						<p>Property Area <span></span></p>
+						<span class="icon-case"></span>
+                				<select name="propertyArea" id="propertyArea" required="required">
+                					<option value="Urban">Urban</option>
+                					<option value="Rural">Rural</option>
+               						<option value="Semi">Semi Urban</option>
+            					</select>
+            					<div class="validation"></div>
+					</div>
+
+						<div class="form-row-last">
+							<input type="submit" name="register" class="register" value="Predict">
+						</div>
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+ <!-- Footer -->
+        <!-- Footer -->
+    <div class="unique-color-dark mt-4 white-text " style="background-color: #1c2331 !important;">
+      <div class="blue-gradient">
+        <div class="container">
+          <!-- Grid row-->
+          <div class="row py-3 d-flex align-items-center">
+            <!-- Grid column -->
+            <div
+              class="col-md-6 col-lg-5 text-center text-md-left"
+            >
+              <h6 class="mb-0 text-white">Developed by AYUSH RANJAN   <a href="https://github.com/ayushranjan2405/"><i class="ml-5 fa fa-github fa-2x" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/ayush-ranjan-5a15951b1"><i class="ml-5 fa fa-linkedin fa-2x" aria-hidden="true"></i></a></h6>
+            </div>
+            <!-- Grid column -->
+            
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row-->
+        </div>
+
+
+	<script type="text/javascript">
+		function openCity(evt, cityName) {
+		    var i, tabcontent, tablinks;
+		    tabcontent = document.getElementsByClassName("tabcontent");
+		    for (i = 0; i < tabcontent.length; i++) {
+		        tabcontent[i].style.display = "none";
+		    }
+		    tablinks = document.getElementsByClassName("tablinks");
+		    for (i = 0; i < tablinks.length; i++) {
+		        tablinks[i].className = tablinks[i].className.replace(" active", "");
+		    }
+		    document.getElementById(cityName).style.display = "block";
+		    evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+
+	</script>
+	  </div>
+		</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

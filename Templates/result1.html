@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Result</title>
+
+  <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+    .center {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(230, 239, 245);
+    }
+  </style>
+</head>
+<!-- Navbar Starts -->
+    <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand font-weight-bold" href="#" style="color: Black;">INFRA PSEUDO BANK</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+                <a class="nav-link" href="#">Home </a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#">Net Banking</a>
+             </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="#">Predictions<span class="sr-only">(current)</span></a>
+             </li>
+		<li class="nav-item">
+               		<a class="nav-link" href="#">Career</a>
+             	</li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+             </li>
+             
+        </ul>
+    </div>
+    </nav>
+    </section>
+    <!-- Navbar Ends -->
+<body class="center">
+
+  {% if result == 'yes' %}
+
+  <img src="{% static 'exit.png' %}" alt="Sad To Know!" width="900" height="400">
+  <h1 style=" color: rgb(212, 85, 85); font-weight: 900;">oops..<br>
+  <i class="fas fa-skull"></i>Customer Will Churn!
+
+
+  {% elif result == 'no' %}
+
+    <img src="{% static 'no_churn.jpeg' %}" alt="Cogratulations !!!" width="900" height="400">
+  <h1 style="color: rgb(88, 185, 88); font-weight: 900;">Congratulations !!<br>
+  <i class="fas fa-swimmer"></i>Customer Will Remain with our Bank !!
+
+
+  {% else %}
+  <h1 style="color: rgb(31, 15, 15); font-weight: 900;">ERROR</h1>
+  {% endif %}
+  </h1></h1>
+<!-- Footer -->
+        <!-- Footer -->
+    <div class="unique-color-dark mt-4 white-text " style="background-color: #1c2331 !important;">
+      <div class="blue-gradient">
+        <div class="container">
+          <!-- Grid row-->
+          <div class="row py-3 d-flex align-items-center">
+            <!-- Grid column -->
+            <div
+              class="col-md-6 col-lg-5 text-center text-md-left"
+            >
+              <h6 class="mb-0 text-white">Developed by AYUSH RANJAN<a href="https://github.com/ayushranjan2405/"><i class="ml-5 fa fa-github fa-2x" aria-hidden="true"></i></a></h6>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+</body>
+</html>
